@@ -2,14 +2,25 @@
     "name": "mstone121/php-object-sql",
     "description": "An object-oriented approach to SQL generation",
     "type": "library",
+    "keywords": [
+        "sql",
+        "object-oriented"
+    ],
+    "homepage": "https://github.com/mstone121/php-object-sql",
+    "readme": "https://github.com/mstone121/php-object-sql/blob/main/README.md",
     "license": "MIT",
     "authors": [
         {
             "name": "Matt Stone",
-            "email": "mstone121@gmail.com"
+            "email": "mstone121@gmail.com",
+            "homepage": "https://github.com/mstone121/",
+            "role": "Developer"
         }
     ],
-    "minimum-stability": "dev",
+    "support": {
+        "source": "https://github.com/mstone121/php-object-sql",
+        "issues": "https://github.com/mstone121/php-object-sql/issues"
+    },
     "require": {},
     "autoload": {
         "psr-4": {
