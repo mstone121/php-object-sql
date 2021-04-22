@@ -1,7 +1,7 @@
 # php-object-sql
 An object-oriented approach to SQL generation in PHP
 
-The goal of this project is to combine modularity of object-oriented programming without the strict requirements of ORMs.
+The goal of this project is to combine the modularity of object-oriented programming without the strict requirements of ORMs.
 
 Before
 ```php
