@@ -50,7 +50,7 @@ Please note that no checking is performed on strings passed to QComponents. This
 ```php
 new QString(
     new QSelect([
-        "1; TRUNCATE questions; SELECT *'
+        "1; TRUNCATE questions; SELECT *"
     ]),
     new QFrom('questions')
 )
