@@ -56,3 +56,5 @@ new QString(
 )
 ```
 and it would delete everything in the `questions` table.
+
+This library assumes that you are using it conciously and therefore allows you greater flexibility along with greater responsibility.
