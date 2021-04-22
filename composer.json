@@ -1,0 +1,14 @@
+{
+    "name": "mstone121/php-object-sql",
+    "description": "An object-oriented approach to SQL generation",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matt Stone",
+            "email": "mstone121@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
