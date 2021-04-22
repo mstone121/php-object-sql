@@ -2,7 +2,7 @@
 
 namespace ObjectSql;
 
-class QConditionIn extends QCondition
+class QIn extends QCondition
 {
     protected $column;
 
