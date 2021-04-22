@@ -21,7 +21,9 @@
         "source": "https://github.com/mstone121/php-object-sql",
         "issues": "https://github.com/mstone121/php-object-sql/issues"
     },
-    "require": {},
+    "require": {
+        "php": ">=7.2"
+    },
     "autoload": {
         "psr-4": {
             "ObjectSql\\": "/src"
