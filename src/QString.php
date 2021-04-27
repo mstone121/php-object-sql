@@ -78,20 +78,21 @@ class QString extends QComponent
             $this->from->getBindings()
         );
 
+        // To Do: With PHP v7.3, array_push can be called with one argument
         if ($this->joins) {
-            array_push($bindings, ...$this->joins->getBindings());
+            $bindings = array_merge($bindings, $this->joins->getBindings());
         }
 
         if ($this->where) {
-            array_push($bindings, ...$this->where->getBindings());
+            $bindings = array_merge($bindings, $this->where->getBindings());
         }
 
         if ($this->group) {
-            array_push($bindings, ...$this->group->getBindings());
+            $bindings = array_merge($bindings, $this->group->getBindings());
         }
 
         if ($this->order) {
-            array_push($bindings, ...$this->order->getBindings());
+            $bindings = array_merge($bindings, $this->order->getBindings());
         }
 
         return $bindings;
