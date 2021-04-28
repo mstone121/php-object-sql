@@ -18,6 +18,13 @@ class QWhere extends QComponent
         }
     }
 
+    public function addConditions(QConjuction ...$conditions): void
+    {
+        foreach ($conditions as $condition) {
+            $this->addCondition($condition);
+        }
+    }
+
     public function __toString(): string
     {
         return "WHERE 1=1" . PHP_EOL . implode(PHP_EOL, $this->conditions);
