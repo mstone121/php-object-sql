@@ -11,8 +11,8 @@ class QIn extends QCondition
         if (count($values) === 0) {
             trigger_error('Array of length 0 passed to QIn constructor, using FALSE instead', E_USER_WARNING);
             parent::__construct("FALSE", []);
+        } else {
+            parent::__construct("$column IN (" . self::bindingsString($values) . ")", $values);
         }
-
-        parent::__construct("$column IN (" . self::bindingsString($values) . ")", $values);
     }
 }
