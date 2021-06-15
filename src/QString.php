@@ -46,9 +46,13 @@ class QString extends QComponent
 
     public function __toString(): string
     {
-        $this->checkMinimumComponents();
+        $this->checkSelect();
 
-        $query = $this->select . PHP_EOL . $this->from . PHP_EOL;
+        $query = $this->select . PHP_EOL;
+
+        if ($this->from) {
+            $query .= $this->from . PHP_EOL;
+        }
 
         if ($this->joins) {
             $query .= $this->joins . PHP_EOL;
@@ -71,14 +75,14 @@ class QString extends QComponent
 
     public function getBindings(): array
     {
-        $this->checkMinimumComponents();
-
-        $bindings = array_merge(
-            $this->select->getBindings(),
-            $this->from->getBindings()
-        );
+        $this->checkSelect();
+        $bindings = $this->select->getBindings();
 
         // To Do: With PHP v7.3, array_push can be called with one argument
+        if ($this->from) {
+            $bindings = array_merge($bindings, $this->from->getBindings());
+        }
+
         if ($this->joins) {
             $bindings = array_merge($bindings, $this->joins->getBindings());
         }
@@ -98,14 +102,10 @@ class QString extends QComponent
         return $bindings;
     }
 
-    protected function checkMinimumComponents(): void
+    protected function checkSelect(): void
     {
         if (!$this->select) {
             throw new \Exception("Missing SELECT clause");
-        }
-
-        if (!$this->from) {
-            throw new \Exception("Missing FROM clause");
         }
     }
 }
