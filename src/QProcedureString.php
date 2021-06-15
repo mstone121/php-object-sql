@@ -4,6 +4,8 @@ namespace ObjectSql;
 
 class QProcedureString extends QString
 {
+    public static $resultName = 'result';
+
     protected $procedure;
 
     public function __construct(QProcedure $procedure)
@@ -13,7 +15,7 @@ class QProcedureString extends QString
 
     public function __toString(): string
     {
-        return "SELECT $this->procedure";
+        return "SELECT $this->procedure as " . self::$resultName;
     }
 
     public function getBindings(): array
