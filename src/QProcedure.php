@@ -10,7 +10,11 @@ class QProcedure extends QComponent
     public function __construct(string $procedure, array $parameters = [])
     {
         $this->procedure = $procedure;
-        $this->parameters = $parameters;
+        $this->parameters = array_map(function ($parameter) {
+            return is_bool($parameter)
+                ? ($parameter ? 'true' : 'false')
+                : $parameter;
+        }, $parameters);
     }
 
     public function __toString(): string
