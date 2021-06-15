@@ -100,8 +100,12 @@ class QString extends QComponent
 
     protected function checkMinimumComponents(): void
     {
-        if (!$this->select || !$this->from) {
-            throw new \Exception(" missing SELECT or FROM clause");
+        if (!$this->select) {
+            throw new \Exception("Missing SELECT clause");
+        }
+
+        if (!$this->from) {
+            throw new \Exception("Missing FROM clause");
         }
     }
 }
