@@ -46,9 +46,7 @@ class QString extends QComponent
 
     public function __toString(): string
     {
-        if (!$this->select || !$this->from) {
-            throw new \Exception(" missing SELECT or FROM clause");
-        }
+        $this->checkMinimumComponents();
 
         $query = $this->select . PHP_EOL . $this->from . PHP_EOL;
 
@@ -73,6 +71,8 @@ class QString extends QComponent
 
     public function getBindings(): array
     {
+        $this->checkMinimumComponents();
+
         $bindings = array_merge(
             $this->select->getBindings(),
             $this->from->getBindings()
@@ -96,5 +96,12 @@ class QString extends QComponent
         }
 
         return $bindings;
+    }
+
+    protected function checkMinimumComponents(): void
+    {
+        if (!$this->select || !$this->from) {
+            throw new \Exception(" missing SELECT or FROM clause");
+        }
     }
 }
