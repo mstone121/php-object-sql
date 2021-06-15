@@ -2,7 +2,7 @@
 
 namespace ObjectSql;
 
-class QProcedure extends QComponent
+class QProcedure extends QString
 {
     protected $procedure;
     protected $parameters;
@@ -15,7 +15,12 @@ class QProcedure extends QComponent
 
     public function __toString(): string
     {
-        return "$this->procedure(" . self::bindingsString($this->parameters) . ")";
+        return "SELECT $this->procedure(" . self::bindingsString($this->parameters) . ")";
+    }
+
+    public final function addComponent(QComponent $component)
+    {
+        throw new \LogicException("Cannot add components to QProcedures");
     }
 
     public function getBindings(): array
