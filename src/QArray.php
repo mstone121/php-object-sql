@@ -13,7 +13,7 @@ class QArray extends QComponent
 
     public function __toString(): string
     {
-        return 'ARRAY[' . self::bindingsString($this->getBindings()) . ']';
+        return 'ARRAY[' . implode(',', self::bindingsStringFromMixedArray($this->array)) . ']';
     }
 
     public function getBindings(): array

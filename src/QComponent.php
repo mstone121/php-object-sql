@@ -37,6 +37,16 @@ abstract class QComponent
         );
     }
 
+    protected static function bindingsStringFromMixedArray(array $array): array
+    {
+        return array_map(
+            function (mixed $item) {
+                return $item instanceof QComponent ? $item : '?';
+            },
+            $array
+        );
+    }
+
     public static function bindingsString(array $bindings): string
     {
         return implode(',', array_fill(0, count($bindings), '?'));
