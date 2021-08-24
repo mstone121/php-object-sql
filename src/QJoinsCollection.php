@@ -25,6 +25,6 @@ class QJoinsCollection extends QComponent
 
     public function getBindings(): array
     {
-        return self::bindingsFromArray($this->joins);
+        return self::bindingsFromArray(...$this->joins);
     }
 }

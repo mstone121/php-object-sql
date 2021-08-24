@@ -32,6 +32,6 @@ class QWhere extends QComponent
 
     public function getBindings(): array
     {
-        return self::bindingsFromArray($this->conditions);
+        return self::bindingsFromArray(...$this->conditions);
     }
 }
