@@ -40,7 +40,7 @@ abstract class QComponent
     protected static function bindingsStringFromMixedArray(array $array): array
     {
         return array_map(
-            function (mixed $item) {
+            function ($item) {
                 return $item instanceof QComponent ? $item : '?';
             },
             $array
