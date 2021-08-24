@@ -15,7 +15,7 @@ class QProcedure extends QComponent
 
     public function __toString(): string
     {
-        return "$this->procedure(" . self::bindingsString($this->getBindings()) . ")";
+        return "$this->procedure(" . self::bindingsString($this->parameters) . ")";
     }
 
     public function getBindings(): array
