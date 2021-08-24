@@ -20,16 +20,6 @@ class QProcedure extends QComponent
 
     public function getBindings(): array
     {
-        return array_reduce($this->parameters, function ($parameters, $parameter) {
-            if ($parameter instanceof QComponent) {
-                return array_merge($parameters, $parameter->getBindings());
-            }
-
-            if (is_bool($parameter)) {
-                return array_merge($parameters, [$parameter ? 'true' : 'false']);
-            }
-
-            return array_merge($parameters, [$parameter]);
-        }, []);
+        return self::bindingsFromMixedArray($this->parameters);
     }
 }
