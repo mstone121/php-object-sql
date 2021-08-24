@@ -29,7 +29,7 @@ class QProcedure extends QComponent
                 return array_merge($parameter, [$parameter ? 'true' : 'false']);
             }
 
-            return array_merge($parameters, $parameter);
+            return array_merge($parameters, [$parameter]);
         }, []);
     }
 }
