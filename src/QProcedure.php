@@ -26,7 +26,7 @@ class QProcedure extends QComponent
             }
 
             if (is_bool($parameter)) {
-                return array_merge($parameter, [$parameter ? 'true' : 'false']);
+                return array_merge($parameters, [$parameter ? 'true' : 'false']);
             }
 
             return array_merge($parameters, [$parameter]);
