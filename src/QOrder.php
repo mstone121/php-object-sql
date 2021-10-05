@@ -17,13 +17,13 @@ class QOrder extends QComponent
     {
         return sprintf(
             "ORDER BY %s %s",
-            self::bindingsString($this->columns),
+            implode(', ', $this->columns),
             $this->direction
         );
     }
 
     public function getBindings(): array
     {
-        return $this->columns;
+        return [];
     }
 }
