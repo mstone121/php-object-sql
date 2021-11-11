@@ -2,7 +2,7 @@
 
 namespace ObjectSql;
 
-class QEqual extends QCondition
+class QIsNull extends QCondition
 {
     public function __construct(string $column)
     {
