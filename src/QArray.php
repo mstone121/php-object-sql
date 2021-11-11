@@ -6,14 +6,16 @@ class QArray extends QComponent
 {
     protected $array;
 
-    public function __construct(array $array)
+    public function __construct(array $array, ?string $type = null)
     {
         $this->array = $array;
+        $this->type = $type;
     }
 
     public function __toString(): string
     {
-        return 'ARRAY[' . implode(',', self::bindingsStringFromMixedArray($this->array)) . ']';
+        return 'ARRAY[' . implode(',', self::bindingsStringFromMixedArray($this->array)) . ']'
+            . ($this->type ? '::' . $this->type : '');
     }
 
     public function getBindings(): array
